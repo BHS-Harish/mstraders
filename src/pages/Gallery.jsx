@@ -1,6 +1,7 @@
 import React from "react";
 import Header from '../components/Header'
 import TopBar from '../components/TopBar'
+import Payment from "../components/Payment";
 import Footer from '../components/Footer'
 import {Row,Col} from 'antd';
 import PhotoAlbum from "react-photo-album";
@@ -18,6 +19,7 @@ function Gallery(){
                     <PhotoAlbum layout="rows" photos={gallery} />
                 </Col>
             </Row>
+            <Payment/>
             <Footer/>
         </>
     )

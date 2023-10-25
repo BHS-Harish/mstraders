@@ -1,19 +1,19 @@
-import React from "react";
+import React,{useState} from "react";
 import TopBar from '../components/TopBar'
 import Header from "../components/Header";
+import Payment from "../components/Payment";
 import Footer from "../components/Footer";
-import { Carousel, Row, Col } from 'antd'
+import { Carousel, Row, Col ,Table,Modal} from 'antd'
 // import { RightCircleFilled } from '@ant-design/icons'
+import { crackerColumnTemplate, crackerData, allCategories} from '../assets/data'
 import { useNavigate } from "react-router-dom";
-import car1 from '../assets/carousal1.gif';
+import banner3 from '../assets/banner1.jpg';
 import banner1 from '../assets/banner2.jpg'
 import banner2 from '../assets/banner3.jpg'
 import welcome from '../assets/light-img.png';
 import pots from '../assets/pots.png'
 import chakker from '../assets/chakkar.png'
 import lakshmi from '../assets/lakshmi.png'
-import rocket from '../assets/rocket.png'
-import sparklers from '../assets/sparklers.png'
 import wala from '../assets/wala.png'
 // import diary from '../assets/diary.png'
 // import calendar from '../assets/calendar.png'
@@ -22,12 +22,14 @@ import bottom from '../assets/bottom.gif'
 import '../styles/home.css'
 function Home() {
     const navigate=useNavigate()
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [currentItem,setCurrentItem]=useState({"column":[],"data":[]})
     return (
         <>
             <TopBar />
             <Header />
             <Carousel autoplay className="w-100">
-                <img src={car1} alt="ms-traders" className="home-carousal" />
+                <img src={banner3} alt="ms-traders" className="home-carousal" />
                 <img src={banner1} alt="ms-traders" className="home-carousal" />
                 <img src={banner2} alt="ms-traders" className="home-carousal" />
             </Carousel>
@@ -61,12 +63,22 @@ function Home() {
                     <p className="px-3 poppins my-4">Explore our product categories to discover the perfect fireworks for your special occasions</p>
                 </Col>
                 <Col span={24} className="d-flex justify-content-center align-items-center flex-wrap">
-                    <img src={pots} alt="ms-traders" className="mx-5 my-3 homepage-product-image" />
-                    <img src={chakker} alt="ms-traders" className="mx-5 my-3 homepage-product-image" />
-                    <img src={lakshmi} alt="ms-traders" className="mx-5 my-3 homepage-product-image" />
-                    <img src={sparklers} alt="ms-traders" className="mx-5 my-3 homepage-product-image" />
-                    <img src={rocket} alt="ms-traders" className="mx-5 my-3 homepage-product-image" />
-                    <img src={wala} alt="ms-traders" className="mx-5 my-3 homepage-product-image" />
+                    <img src={pots} alt="ms-traders" className="mx-5 my-3 homepage-product-image pointer" onClick={()=>{
+                                        setCurrentItem({column:crackerColumnTemplate,data:crackerData[allCategories[3]]})
+                                        setIsModalOpen(true)
+                                }}/>
+                    <img src={chakker} alt="ms-traders" className="mx-5 my-3 homepage-product-image pointer" onClick={()=>{
+                                        setCurrentItem({column:crackerColumnTemplate,data:crackerData[allCategories[2]]})
+                                        setIsModalOpen(true)
+                                }}/>
+                    <img src={lakshmi} alt="ms-traders" className="mx-5 my-3 homepage-product-image pointer" onClick={()=>{
+                                        setCurrentItem({column:crackerColumnTemplate,data:crackerData[allCategories[0]]})
+                                        setIsModalOpen(true)
+                                }}/>
+                    <img src={wala} alt="ms-traders" className="mx-5 my-3 homepage-product-image pointer" onClick={()=>{
+                                        setCurrentItem({column:crackerColumnTemplate,data:crackerData[allCategories[7]]})
+                                        setIsModalOpen(true)
+                                }}/>
                 </Col>
                 <Col span={24} className="d-flex justify-content-center align-items-center">
                     <button className="mx-3 my-5 px-5 py-2 btn btn-primary fw-bold poppins pointer" onClick={()=>{navigate("/crackers")}}>SEE ALL OUR PRODUCTS</button>
@@ -98,6 +110,10 @@ function Home() {
                     <img src={bottom} alt="ms-traders-sivakasi" className="w-100" style={{ borderRadius: "5%" }} />
                 </Col>
             </Row>
+            <Modal title="Product Details" open={isModalOpen} onCancel={() => { setIsModalOpen(false) }} onOk={() => { setIsModalOpen(false) }}>
+                <Table columns={currentItem?.column} dataSource={currentItem?.data} pagination={false}/>
+            </Modal>
+            <Payment/>
             <Footer/>
         </>
     )

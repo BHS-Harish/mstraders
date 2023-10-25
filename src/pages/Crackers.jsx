@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { Row, Col, Table, Modal } from 'antd'
 import TopBar from '../components/TopBar';
 import Header from '../components/Header'
+import Payment from "../components/Payment";
 import Footer from '../components/Footer'
 import { categories, giftBox, crackerColumnTemplate, crackerData, giftColumnTemplate, allCategories} from '../assets/data'
 function Crackers() {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const giftPrices=["400","650","1000"]
+    const [giftPrice,setGiftPrice]=useState({flag:true,index:0});
     const [currentItem,setCurrentItem]=useState({"column":[],"data":[]})
     return (
         <>
@@ -24,6 +27,7 @@ function Crackers() {
                             return (
                                 <img className="categories-crackers" src={url} alt="ms traders-best crackers in sivakasi" key={index} onClick={()=>{
                                         setCurrentItem({column:crackerColumnTemplate,data:crackerData[allCategories[index]]})
+                                        setGiftPrice({flag:false,index})
                                         setIsModalOpen(true)
                                 }} />
                             )
@@ -39,6 +43,7 @@ function Crackers() {
                             return (
                                 <img className="giftbox-crackers" src={url} alt="ms traders-best crackers in sivakasi" key={index} onClick={()=>{
                                     setCurrentItem({column:giftColumnTemplate,data:crackerData[allCategories[20+index]]})
+                                    setGiftPrice({flag:true,index})
                                     setIsModalOpen(true)
                             }}/>
                             )
@@ -47,8 +52,13 @@ function Crackers() {
                 </Col>
             </Row>
             <Modal title="Product Details" open={isModalOpen} onCancel={() => { setIsModalOpen(false) }} onOk={() => { setIsModalOpen(false) }}>
+                {
+                    giftPrice.flag&&<><h5 className="my-3">Orginal Price : <span className="linethrough">&#8377; {giftPrices[giftPrice.index]}</span><span className="fw-bold text-danger ms-2 fs-6">  -{Math.floor((giftPrices[giftPrice.index]*60)/100)}</span></h5>
+                    <h5 className="my-3">Special Price : &#8377; <span className="fw-bold text-primary">{giftPrices[giftPrice.index]-Math.floor((giftPrices[giftPrice.index]*60)/100)}</span></h5></>
+                }
                 <Table columns={currentItem?.column} dataSource={currentItem?.data} pagination={false}/>
             </Modal>
+            <Payment/>
             <Footer />
         </>
     )

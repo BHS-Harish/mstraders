@@ -1586,17 +1586,22 @@ export const crackerColumnTemplate=[
       render:(value)=><p className="fw-bold txt-primary poppins">{value}</p>
     },
     {
-      title: 'Quantity',
-      dataIndex: 'quantity',
-      key: 'quantity',
-      render:(value)=><p className="poppins text-danger fw-bold">{value}</p>
-    },
-    {
       title: 'Price',
       dataIndex: 'price',
       key: 'price',
-      render:(value)=><p className="fw-bold poppins">&#8377; {value}</p>
-    }
+      render:(value)=><><p className="fw-bold poppins linethrough">&#8377; {value}</p><br/><p className="fw-bold poppins text-danger">- &#8377; {Math.floor((value*60)/100)}</p></>
+    },
+    {
+        title:"Special price",
+        dataIndex:"price",
+        key:"price",
+        render:(value)=><p className="fw-bold poppins text-primary">&#8377; {value-Math.floor((value*60)/100)}</p>
+    },{
+        title: 'Quantity',
+        dataIndex: 'quantity',
+        key: 'quantity',
+        render:(value)=><p className="poppins text-danger fw-bold">{value}</p>
+      },
 ]
 
 export const giftColumnTemplate=[

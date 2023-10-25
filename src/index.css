@@ -65,3 +65,10 @@ code {
 .giftbox-crackers:hover{
   transform: rotateZ(10deg);
 }
+.linethrough{
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+}
+.ant-modal-body{
+  overflow-x: scroll;
+}

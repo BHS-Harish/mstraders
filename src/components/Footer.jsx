@@ -8,11 +8,11 @@ function Footer() {
             <Row className="py-5">
                 <Col xs={{ span: 22, offset: 2 }} sm={{ span: 22, offset: 2 }} md={{ span: 6, offset: 2 }} lg={{ span: 6, offset: 2 }} xl={{ span: 6, offset: 2 }} className="my-3">
                     <img src={logo} alt="best crackers in sivakasi" style={{ width: "120px", height: "auto" }} />
-                    <h2 className="poppins txt-primary fw-bold mt-3">MS TRADERS</h2>
+                    <h2 className="txt-primary fw-bold mt-3 ms-1">MS TRADERS</h2>
                 </Col>
                 <Col xs={{ span: 22, offset: 2 }} sm={{ span: 22, offset: 2 }} md={{ span: 4 }} lg={{ span: 4 }} xl={{ span: 4 }} className="my-3">
                     <h5 className="poppins fw-bold txt-primary">Quick Links</h5>
-                    <div className="ms-3 d-flex flex-column">
+                    <div className="ms-1 d-flex flex-column">
                         <a href="/" className="text-black poppins text-decoration-none fs-6 my-1">Home</a>
                         <a href="/crackers" className="text-black poppins text-decoration-none fs-6 my-1">Crackers</a>
                         {/* <a href="/" className="text-black poppins text-decoration-none fs-6 my-1">Calendar</a> */}
