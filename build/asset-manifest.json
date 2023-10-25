@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8ae8c008.css",
+    "main.js": "/static/js/main.c54b7753.js",
+    "static/js/787.f696c9b1.chunk.js": "/static/js/787.f696c9b1.chunk.js",
+    "static/media/bottom.gif": "/static/media/bottom.e694374c0e18eb53a1c2.gif",
+    "static/media/banner1.jpg": "/static/media/banner1.0417af9e27edccef99f5.jpg",
+    "static/media/banner3.jpg": "/static/media/banner3.bd90b2cf5bbf8f4d4d72.jpg",
+    "static/media/banner2.jpg": "/static/media/banner2.4e0ad18df1421a59bb10.jpg",
+    "static/media/logo.jpg": "/static/media/logo.f08861c5072570512943.jpg",
+    "static/media/light-img.png": "/static/media/light-img.3b30b215265be85a94e6.png",
+    "static/media/wala.png": "/static/media/wala.14c9eca302af90acb127.png",
+    "static/media/qr.jpg": "/static/media/qr.30a169fb5ffa1cf7ab79.jpg",
+    "static/media/chakkar.png": "/static/media/chakkar.8cee2eea12852fb3ca5e.png",
+    "static/media/pots.png": "/static/media/pots.457b57aea00a6b0f9b09.png",
+    "static/media/lakshmi.png": "/static/media/lakshmi.c8daa6f8649ac7d2aa85.png",
+    "index.html": "/index.html",
+    "main.8ae8c008.css.map": "/static/css/main.8ae8c008.css.map",
+    "main.c54b7753.js.map": "/static/js/main.c54b7753.js.map",
+    "787.f696c9b1.chunk.js.map": "/static/js/787.f696c9b1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8ae8c008.css",
+    "static/js/main.c54b7753.js"
+  ]
+}
